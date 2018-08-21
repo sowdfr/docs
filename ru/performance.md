@@ -47,33 +47,31 @@
 
 <a name='overview'></a>
 
-# Increasing Performance
+# Увеличение производительности
 
-Get faster applications requires refine many aspects: server, client, network, database, web server, static sources, etc. In this chapter we highlight scenarios where you can improve performance and how detect what is really slow in your application.
+Что бы сделать преложение быстрее, нужно учесть множество аспектов, таких как: сервер, клиент, сеть, база данных, веб сервер, статика и т.д. В этой главе мы расмотрим сценарии где вы сможете улушчить производительность вашего приложения и определить узкие места.
 
 <a name='profiling-server'></a>
 
-## Profile on the Server
+## Профелирование
+Каждое приложение уникально, профелирование важно для понимания как и где можно увеличить производиетльность. Профелирование дает нам реальную картину, что действительно тормазит, а что нет. Результаты профелирования могут варьироваться между разными запросами, по этому стоит провести множество измерений, что бы сделать выводы
 
-Each application is different, the permanent profiling is important to understand where performance can be increased. Profiling gives us a real picture on what is really slow and what does not. Profiles can vary between a request and another, so it is important to make enough measurements to make conclusions.
+Профелирование с помощью XDebug
 
-Профилирование с XDebug
-
-[XDebug](http://xdebug.org/docs) provides an easier way to profile PHP applications, just install the extension and enable profiling in the php.ini:
+[XDebug](http://xdebug.org/docs) позволяет легко профелировать PHP приложения, достаточно установить расширение и включить профелирование в php.ini:
 
 ```ini
 xdebug.profiler_enable = On
 ```
 
-Using a tool like [Webgrind](https://github.com/jokkedk/webgrind/) you can see which functions/methods are slower than others:
+Используя инструменты такие как [Webgrind](https://github.com/jokkedk/webgrind/) вы сможете увидеть каждую функцию/метод которые замедляют работу вашего приложения:
 
 ![](/images/content/performance-webgrind.jpg)
 
 <a name='profiling-server-xhprof'></a>
+### Profiling with Xhprof
+[Xhprof](https://github.com/facebook/xhprof) еще одно интересное расширения для профелирование PHP приложений. Добавье эту строку в начало bootstrap файла:
 
-### Профилирование с Xhprof
-
-[Xhprof](https://github.com/facebook/xhprof) is another interesting extension to profile PHP applications. Add the following line to the start of the bootstrap file:
 
 ```php
 <?php
